@@ -42,7 +42,3 @@ def mimetype():
 
 if __name__ == "__main__":
     app.run(debug=True)
-    # This is a small change to trigger redeployment
-
-
-
