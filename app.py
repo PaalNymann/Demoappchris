@@ -7,11 +7,8 @@ reminders = []
 
 @app.route("/")
 def index():
-    """Home page showing a simple string."""
-    return render_template("index.html", reminders=[
-        {"spouse_name": "Alice", "category": "Anniversary", "description": "Buy flowers", "date": "2025-01-15"},
-        {"spouse_name": "Bob", "category": "Birthday", "description": "Prepare surprise party", "date": "2025-02-20"}
-    ])
+    """Home page showing all reminders."""
+    return render_template("index.html", reminders=reminders)
 
 @app.route("/add", methods=["GET", "POST"])
 def add_reminder():
@@ -37,9 +34,10 @@ def add_reminder():
 def test():
     """Test route to check if Flask is working."""
     return "<h1>This is a test page</h1>"
-    
+
 @app.route("/mimetype")
 def mimetype():
+    """Test route to ensure the correct content type."""
     return render_template("index.html"), 200, {"Content-Type": "text/html"}
 
 if __name__ == "__main__":
